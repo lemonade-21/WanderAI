@@ -1,0 +1,3 @@
+Itinerary Builder (Core Feature 1)	COMPLETE	Successfully takes input, calls Gemini, and generates the structured, multi-day itinerary.
+Suggested Trips (Core Feature 2)	COMPLETE	Successfully retrieves and displays the pre-curated data.
+Weather API (Bonus)	COMPLETE	The logic is successfully integrated into the itinerary builder and will fetch the weather when the city name is recognized.

@@ -1,0 +1,77 @@
+# --- FRONTEND (React/Node) ---
+/frontend/node_modules
+/frontend/.pnp
+/frontend/.pnp.js
+/frontend/coverage
+/frontend/build
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+
+# --- BACKEND (Python/FastAPI) ---
+/backend/venv
+/backend/.venv
+/backend/__pycache__
+/backend/*.pyc
+
+# --- SECRET/ENVIRONMENT FILES (CRITICAL) ---
+# This ignores the specific .env file in the backend folder
+/backend/.env
+
+# These ignore local environment overrides which are safe to ignore
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- OPERATING SYSTEM FILES ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# --- IDE / EDITOR FILES ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- LOGS ---
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- TEMPORARY FILES ---
+*.tmp
+*.temp
+.cache/
+
+# --- DOCUMENTATION (Optional - Remove if you want to track these) ---
+# PDF_FEATURE_SETUP.md
+# ENHANCEMENTS_ADDED.md
+
+# --- BUILD ARTIFACTS ---
+dist/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# --- PACKAGE LOCK FILES (Optional - Uncomment if needed) ---
+# package-lock.json
+# yarn.lock
+
+# --- TEST COVERAGE ---
+coverage/
+.nyc_output/
+htmlcov/
+.coverage
+.pytest_cache/
+
+# --- MISC ---
+.env
+*.bak
+*.orig
