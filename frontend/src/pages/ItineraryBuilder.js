@@ -112,7 +112,8 @@ function ItineraryBuilder() {
 
   return (
     <div className="itinerary-builder">
-      <div className="builder-hero">
+      {/* Hero Section with Mountain Image */}
+      <div className="hero-section">
         <div className="hero-content">
           <div className="hero-badge">
             <span className="badge-icon">✨</span>
@@ -126,97 +127,133 @@ function ItineraryBuilder() {
             Tell us where you want to go, and our AI will create a personalized itinerary just for you.
           </p>
         </div>
+        <div className="scroll-indicator">
+          <span className="scroll-text">Scroll Down</span>
+          <span className="scroll-arrow">↓</span>
+        </div>
       </div>
 
+      {/* Form and Results Section */}
       <div className="builder-container">
-        <form onSubmit={handleSubmit} className="itinerary-form">
-          <div className="form-header">
-            <h2 className="form-title">
-              <span className="form-icon">📝</span>
-              Trip Details
-            </h2>
-            <p className="form-description">Share your travel preferences with us</p>
-          </div>
-
-          <div className="form-grid">
-            <div className="form-group">
-              <label htmlFor="destination" className="form-label">
-                <span className="label-icon">📍</span>
-                Destination
-              </label>
-              <input
-                type="text"
-                id="destination"
-                name="destination"
-                value={formData.destination}
-                onChange={handleChange}
-                placeholder="e.g., Paris, Tokyo, New York"
-                required
-                className="form-input"
-              />
+        <div className="form-section">
+          <div className="form-card">
+            <div className="form-header">
+              <h2 className="form-subtitle">Tell us about your dream destination</h2>
             </div>
 
-            <div className="form-group">
-              <label htmlFor="duration" className="form-label">
-                <span className="label-icon">📅</span>
-                Duration (Days)
-              </label>
-              <input
-                type="number"
-                id="duration"
-                name="duration"
-                value={formData.duration}
-                onChange={handleChange}
-                min="1"
-                max="30"
-                required
-                className="form-input"
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="itinerary-form">
+              <div className="form-group">
+                <label htmlFor="destination" className="form-label">
+                  <span className="label-icon">📍</span>
+                  Where do you want to go?
+                </label>
+                <input
+                  type="text"
+                  id="destination"
+                  name="destination"
+                  value={formData.destination}
+                  onChange={handleChange}
+                  placeholder="e.g., Paris, Tokyo, New York"
+                  required
+                  className="form-input"
+                />
+              </div>
 
-            <div className="form-group full-width">
-              <label htmlFor="interests" className="form-label">
-                <span className="label-icon">💡</span>
-                Interests & Preferences
-              </label>
-              <textarea
-                id="interests"
-                name="interests"
-                value={formData.interests}
-                onChange={handleChange}
-                placeholder="e.g., art, food, history, adventure, nature"
-                rows="4"
-                required
-                className="form-textarea"
-              />
-            </div>
+              <div className="form-group">
+                <label htmlFor="duration" className="form-label">
+                  <span className="label-icon">📅</span>
+                  How many days?
+                </label>
+                <div className="input-wrapper">
+                  <input
+                    type="number"
+                    id="duration"
+                    name="duration"
+                    value={formData.duration}
+                    onChange={handleChange}
+                    min="1"
+                    max="30"
+                    required
+                    className="form-input"
+                  />
+                  <span className="input-hint">1-7 days</span>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="interests" className="form-label">
+                  <span className="label-icon">💗</span>
+                  What are you interested in?
+                </label>
+                <textarea
+                  id="interests"
+                  name="interests"
+                  value={formData.interests}
+                  onChange={handleChange}
+                  placeholder="e.g., museums, food, history"
+                  rows="4"
+                  required
+                  className="form-textarea"
+                />
+              </div>
+
+              <button type="submit" disabled={loading} className="submit-button">
+                {loading ? (
+                  <>
+                    <span className="spinner"></span>
+                    <span>Generating...</span>
+                  </>
+                ) : (
+                  'Generate My Itinerary'
+                )}
+              </button>
+            </form>
           </div>
+        </div>
 
-          <button type="submit" disabled={loading} className="submit-button">
-            {loading ? (
-              <>
-                <span className="button-spinner"></span>
-                <span>Generating Your Itinerary...</span>
-              </>
-            ) : (
-              <>
-                <span className="button-icon">🚀</span>
-                <span>Generate Itinerary</span>
-              </>
-            )}
-          </button>
-        </form>
+        <div className="results-section">
+          {!itineraryData && !loading && !error && (
+            <div className="results-placeholder">
+              <div className="placeholder-icon-wrapper">
+                <span className="placeholder-icon">🗺️</span>
+              </div>
+              <h3>Your Itinerary Awaits</h3>
+              <p>Fill out the form to the left and we'll create a personalized travel plan just for you.</p>
+              <div className="placeholder-features">
+                <div className="placeholder-feature">
+                  <span>✓</span>
+                  <span>Day-by-day schedule</span>
+                </div>
+                <div className="placeholder-feature">
+                  <span>✓</span>
+                  <span>Activity recommendations</span>
+                </div>
+                <div className="placeholder-feature">
+                  <span>✓</span>
+                  <span>Weather information</span>
+                </div>
+              </div>
+            </div>
+          )}
 
-        {error && (
-          <div className="error-message fade-in">
-            <span className="error-icon">⚠️</span>
-            <span>{error}</span>
-          </div>
-        )}
+          {loading && (
+            <div className="loading-message">
+              <div className="loading-spinner"></div>
+              <p>Creating your perfect itinerary...</p>
+            </div>
+          )}
 
-        {itineraryData && (
-          <ItineraryResult data={itineraryData} destination={formData.destination} />
-        )}
+          {error && (
+            <div className="error-message fade-in">
+              <span className="error-icon">⚠️</span>
+              <span>{error}</span>
+            </div>
+          )}
+
+          {itineraryData && (
+            <ItineraryResult data={itineraryData} destination={formData.destination} />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -72,7 +72,7 @@ nav a::before {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, #3182ce, #2c5aa0);
   transform: scaleX(0);
   transition: transform 0.3s ease;
@@ -243,6 +243,14 @@ body.dark-mode nav a:hover {
 
 body.dark-mode nav a.active {
   color: #60a5fa;
+}
+
+body.dark-mode .logo-link {
+  color: #ffffff !important;
+}
+
+body.dark-mode .logo-icon {
+  color: #ffffff;
 }
 
 body.dark-mode .logo-text {
