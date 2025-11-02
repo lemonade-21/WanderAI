@@ -87,7 +87,7 @@ Frontend will run on `http://localhost:3000`
 WanderAI/
 ├── backend/
 │   ├── main.py              # FastAPI application
-│   ├── .env                 # Environment variables (create this)
+│   ├── .env                 # Environment variables
 │   └── requirements.txt     # Python dependencies
 │
 ├── frontend/
