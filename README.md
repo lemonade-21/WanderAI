@@ -8,26 +8,26 @@ WanderAI is a modern, intelligent travel planning application that leverages Goo
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com/)
 [![Python](https://img.shields.io/badge/Python-3.8+-yellow.svg)](https://www.python.org/)
 
-## 🌟 Features
+## Features
 
 ### Core Features
-- **🤖 AI-Powered Itineraries**: Generate personalized day-by-day travel plans using Google Gemini AI
-- **🌍 Destination Discovery**: Explore curated destinations from every continent with country flags
-- **🌤️ Real-Time Weather**: Get current weather information for your destination
-- **🗺️ Google Earth Integration**: Explore destinations in 3D with direct Google Earth links
-- **📱 Fully Responsive**: Optimized for mobile, tablet, and desktop devices
-- **📄 PDF Export**: Download your itinerary as a professionally formatted PDF
+- **AI-Powered Itineraries**: Generate personalized day-by-day travel plans using Google Gemini AI
+- **Destination Discovery**: Explore curated destinations from every continent with country flags
+- **Real-Time Weather**: Get current weather information for your destination
+- **Google Earth Integration**: Explore destinations in 3D with direct Google Earth links
+- **Fully Responsive**: Optimized for mobile, tablet, and desktop devices
+- **PDF Export**: Download your itinerary as a professionally formatted PDF
 
 ### User Experience
-- **🎨 Dark/Light Mode**: Toggle between themes with persistent preference
-- **⚡ Snap Scrolling**: Smooth, full-page scrolling experience
-- **🎯 Professional UI**: Modern, clean interface with glass-morphism effects
-- **🎉 Celebration Effects**: Confetti animation and toast notifications
-- **💫 Smooth Animations**: Page transitions, button ripples, and micro-interactions
-- **⌨️ Keyboard Accessible**: Full keyboard navigation support
-- **♿ Accessible**: WCAG compliant with proper ARIA labels and reduced motion support
+- **Dark/Light Mode**: Toggle between themes with persistent preference
+- **Snap Scrolling**: Smooth, full-page scrolling experience
+- **Professional UI**: Modern, clean interface with glass-morphism effects
+- **Celebration Effects**: Confetti animation and toast notifications
+- **Smooth Animations**: Page transitions, button ripples, and micro-interactions
+- **Keyboard Accessible**: Full keyboard navigation support
+- **Accessible**: WCAG compliant with proper ARIA labels and reduced motion support
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 16+ and npm
@@ -81,7 +81,7 @@ Frontend will run on `http://localhost:3000`
 
 3. **Open your browser** and navigate to `http://localhost:3000`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 WanderAI/
@@ -113,7 +113,7 @@ WanderAI/
 └── README.md
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 - **React 18** - UI framework
@@ -134,7 +134,7 @@ WanderAI/
 - **FlagCDN** - Country flag images
 - **Google Earth** - 3D destination exploration
 
-## 🎯 API Endpoints
+## API Endpoints
 
 ### Backend API (`http://127.0.0.1:8000`)
 
@@ -158,20 +158,20 @@ curl -X POST "http://127.0.0.1:8000/generate-itinerary" \
   }'
 ```
 
-## 🌍 Supported Destinations
+## Supported Destinations
 
 WanderAI includes curated destinations from all continents:
-- 🇯🇵 Kyoto, Japan
-- 🇮🇹 Amalfi Coast, Italy
-- 🇮🇳 Mumbai, India
-- 🇿🇦 Cape Town, South Africa
-- 🇦🇷 Patagonia, Argentina
-- 🇬🇷 Santorini, Greece
-- 🇨🇦 Banff, Canada
-- 🇦🇺 Sydney, Australia
-- 🇮🇸 Reykjavik, Iceland
+- Kyoto, Japan
+- Amalfi Coast, Italy
+- Mumbai, India
+- Cape Town, South Africa
+- Patagonia, Argentina
+- Santorini, Greece
+- Banff, Canada
+- Sydney, Australia
+- Reykjavik, Iceland
 
-## 🎨 Features in Detail
+## Features in Detail
 
 ### AI Itinerary Generation
 - Powered by Google Gemini 2.5 Flash
@@ -210,7 +210,7 @@ WanderAI includes curated destinations from all continents:
 - Adaptive layouts
 - Optimized navigation for small screens
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -232,7 +232,7 @@ WEATHER_API_KEY=your_weather_api_key_here
    - Sign up for free API key
    - Add to `.env` file
 
-## 🚢 Deployment
+## Deployment
 
 ### Frontend Deployment (Netlify/Vercel)
 ```bash
@@ -254,7 +254,7 @@ pip freeze > requirements.txt
 - Set `WEATHER_API_KEY` in production environment
 - Update CORS origins in `main.py` to include production URL
 
-## 🧪 Testing
+## Testing
 
 ### Backend Testing
 ```bash
@@ -270,11 +270,11 @@ cd frontend
 npm test
 ```
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -284,26 +284,26 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 🐛 Known Issues
+## Known Issues
 
 - Unsplash Source API may occasionally return cached images
 - Weather API requires valid city names (no typo tolerance)
 
-## ✨ Recent Updates
+## Recent Updates
 
 ### Version 2.0 (Latest)
-- ✅ PDF export functionality
-- ✅ Confetti celebration effects
-- ✅ Toast notifications
-- ✅ Skeleton loaders for better UX
-- ✅ Custom styled scrollbar
-- ✅ Button ripple effects
-- ✅ Form validation indicators
-- ✅ Enhanced animations and micro-interactions
-- ✅ Professional theme toggle switch
-- ✅ Accessibility improvements (keyboard navigation, reduced motion)
+- PDF export functionality
+- Confetti celebration effects
+- Toast notifications
+- Skeleton loaders for better UX
+- Custom styled scrollbar
+- Button ripple effects
+- Form validation indicators
+- Enhanced animations and micro-interactions
+- Professional theme toggle switch
+- Accessibility improvements (keyboard navigation, reduced motion)
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - [ ] User authentication and saved itineraries
 - [ ] Social sharing features
@@ -315,11 +315,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [ ] Budget calculator
 - [ ] Packing list generator
 
-## 📧 Contact
+## Contact
 
 For questions or support, please open an issue on GitHub.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Google Gemini AI for powering intelligent itinerary generation
 - Unsplash for beautiful destination imagery
@@ -329,4 +329,4 @@ For questions or support, please open an issue on GitHub.
 
 ---
 
-**Made with ❤️ for travelers worldwide**
+**Made for travelers worldwide**
