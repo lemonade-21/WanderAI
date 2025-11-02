@@ -6,7 +6,7 @@ import './SuggestedTrips.css';
 // --- THIS BLOCK IS UPDATED ---
 // Use the deployed backend URL in production, or localhost for development
 const BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://wanderai-backend-evy3.onrender.com' // Your live backend
+  ? 'https://wanderai-nyhb.onrender.com' // Your live backend
   : 'http://127.0.0.1:8000'; // Your local backend
 
 const API_URL = `${BASE_URL}/suggested-trips`;
