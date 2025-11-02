@@ -22,13 +22,19 @@ function SuggestedTrips() {
   useEffect(() => {
     const fetchTrips = async () => {
       try {
-        const response = await axios.get(API_URL);
+        // Add timeout for slow backend wake-up (Render free tier)
+        const response = await axios.get(API_URL, {
+          timeout: 60000 // 60 second timeout for backend wake-up
+        });
         setTrips(response.data); // Set the list of trips from the API response
         setError(null); // Clear any previous errors
       } catch (err) {
         console.error("Failed to fetch suggested trips:", err);
-        // --- THIS BLOCK IS UPDATED ---
-        setError(`Could not load trips. Please ensure the backend is running at ${BASE_URL}`);
+        if (err.code === 'ECONNABORTED') {
+          setError('Request timed out. The backend may be waking up. Please refresh the page.');
+        } else {
+          setError(`Could not load trips. Please ensure the backend is running at ${BASE_URL}`);
+        }
         setTrips([]); // Ensure trips list is empty on error
       } finally {
         setLoading(false); // Stop the loading state regardless of success/fail
@@ -63,20 +69,25 @@ function SuggestedTrips() {
 
       <div className="trips-container">
         {loading && (
-          <div className="trips-grid">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <div key={n} className="trip-card-skeleton">
-                <div className="skeleton-header"></div>
-                <div className="skeleton-content">
-                  <div className="skeleton-line"></div>
-                  <div className="skeleton-line short"></div>
-                  <div className="skeleton-line"></div>
-                  <div className="skeleton-line short"></div>
+          <>
+            <div className="loading-info">
+              <p>Loading destinations... If this is your first visit, the backend may take 30-60 seconds to wake up.</p>
+            </div>
+            <div className="trips-grid">
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <div key={n} className="trip-card-skeleton">
+                  <div className="skeleton-header"></div>
+                  <div className="skeleton-content">
+                    <div className="skeleton-line"></div>
+                    <div className="skeleton-line short"></div>
+                    <div className="skeleton-line"></div>
+                    <div className="skeleton-line short"></div>
+                  </div>
+                  <div className="skeleton-button"></div>
                 </div>
-                <div className="skeleton-button"></div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </>
         )}
 
         {error && (

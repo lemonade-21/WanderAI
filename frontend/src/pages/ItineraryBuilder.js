@@ -41,9 +41,11 @@ function ItineraryBuilder() {
     setItineraryData(null); // Clear previous results
     setError(null);
 
-    try {
-      // 1. Send form data to the FastAPI endpoint (Non-Streaming, Stable)
-      const response = await axios.post(API_URL, formData);
+     try {
+      // 1. Send form data to the FastAPI endpoint (Non-Streaming, Stable)
+      const response = await axios.post(API_URL, formData, {
+        timeout: 60000 // 60 second timeout for backend wake-up and AI generation
+      });
       
       // Parse the JSON string received from the backend with error handling
       let aiItinerary;
@@ -73,23 +75,24 @@ function ItineraryBuilder() {
       // Run the weather fetch as a background task (non-blocking)
       fetchWeather(formData.destination, aiItinerary, promptUsed);
 
-    } catch (err) {
-      console.error("AI Generation Error:", err);
-      // Handle different types of errors with more specific messages
-      if (err.response) {
-        // The request was made and the server responded with a status code outside 2xx
-        setError(`Server error: ${err.response.data?.detail || err.response.statusText || 'Unknown error'}`);
-      } else if (err.request) {
-        // The request was made but no response was received
-          // --- THIS BLOCK IS UPDATED ---
-        setError(`No response from server. Please ensure the backend is running at ${BASE_URL}`);
-      } else {
-        // Something happened in setting up the request
-        setError('Failed to generate itinerary. Please check your connection and try again.');
-      }
-      showToast('Failed to generate itinerary. Please try again.', 'error');
-      setLoading(false);
-    }
+     } catch (err) {
+      console.error("AI Generation Error:", err);
+      // Handle different types of errors with more specific messages
+      if (err.code === 'ECONNABORTED') {
+        setError('Request timed out. The backend may be waking up or AI is taking longer. Please try again.');
+      } else if (err.response) {
+        // The request was made and the server responded with a status code outside 2xx
+        setError(`Server error: ${err.response.data?.detail || err.response.statusText || 'Unknown error'}`);
+      } else if (err.request) {
+        // The request was made but no response was received
+        setError(`No response from server. The backend may be waking up (this can take 30-60 seconds on first request). Please try again.`);
+      } else {
+        // Something happened in setting up the request
+        setError('Failed to generate itinerary. Please check your connection and try again.');
+      }
+      showToast('Failed to generate itinerary. Please try again.', 'error');
+      setLoading(false);
+    }
   };
 
   // --- Weather Fetcher (BONUS) ---
