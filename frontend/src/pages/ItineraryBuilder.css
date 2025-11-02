@@ -199,6 +199,7 @@
 }
 
 .builder-container {
+  scroll-snap-align: start;
   display: grid;
   grid-template-columns: 1fr;
   gap: 40px;
@@ -206,7 +207,6 @@
   align-items: start;
   background: #5a6c7d;
   min-height: calc(100vh - 60px);
-  scroll-snap-align: start;
 }
 
 .form-section,

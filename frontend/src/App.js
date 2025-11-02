@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import ItineraryBuilder from './pages/ItineraryBuilder';
 import SuggestedTrips from './pages/SuggestedTrips';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -79,8 +82,12 @@ function App() {
         <Routes>
           <Route path="/" element={<ItineraryBuilder />} />
           <Route path="/trips" element={<SuggestedTrips />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </div>
+
+      <Footer />
 
       {/* Theme Toggle Switch */}
       <div className="theme-toggle" onClick={toggleTheme}>

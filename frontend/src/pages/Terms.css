@@ -1,0 +1,45 @@
+.terms-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.terms-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.terms-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .terms-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Dark Mode Support */
+body.dark-mode .terms-page {
+  background: linear-gradient(135deg, #2d1b69 0%, #5c0a36 100%);
+}
