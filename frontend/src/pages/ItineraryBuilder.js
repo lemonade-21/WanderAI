@@ -110,9 +110,116 @@ function ItineraryBuilder() {
       }
   }
 
-  // ... (rest of your file, including useEffect and return statement, is unchanged) ...
-  // ... (I'm omitting the rest of your file to be concise, just apply the changes at the top) ...
+  return (
+    <div className="itinerary-builder">
+      <div className="builder-hero">
+        <div className="hero-content">
+          <div className="hero-badge">
+            <span className="badge-icon">✨</span>
+            <span>AI-Powered Travel Planning</span>
+          </div>
+          <h1 className="hero-title">
+            Plan Your Perfect
+            <span className="hero-title-accent"> Journey</span>
+          </h1>
+          <p className="hero-subtitle">
+            Tell us where you want to go, and our AI will create a personalized itinerary just for you.
+          </p>
+        </div>
+      </div>
 
+      <div className="builder-container">
+        <form onSubmit={handleSubmit} className="itinerary-form">
+          <div className="form-header">
+            <h2 className="form-title">
+              <span className="form-icon">📝</span>
+              Trip Details
+            </h2>
+            <p className="form-description">Share your travel preferences with us</p>
+          </div>
+
+          <div className="form-grid">
+            <div className="form-group">
+              <label htmlFor="destination" className="form-label">
+                <span className="label-icon">📍</span>
+                Destination
+              </label>
+              <input
+                type="text"
+                id="destination"
+                name="destination"
+                value={formData.destination}
+                onChange={handleChange}
+                placeholder="e.g., Paris, Tokyo, New York"
+                required
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="duration" className="form-label">
+                <span className="label-icon">📅</span>
+                Duration (Days)
+              </label>
+              <input
+                type="number"
+                id="duration"
+                name="duration"
+                value={formData.duration}
+                onChange={handleChange}
+                min="1"
+                max="30"
+                required
+                className="form-input"
+              />
+            </div>
+
+            <div className="form-group full-width">
+              <label htmlFor="interests" className="form-label">
+                <span className="label-icon">💡</span>
+                Interests & Preferences
+              </label>
+              <textarea
+                id="interests"
+                name="interests"
+                value={formData.interests}
+                onChange={handleChange}
+                placeholder="e.g., art, food, history, adventure, nature"
+                rows="4"
+                required
+                className="form-textarea"
+              />
+            </div>
+          </div>
+
+          <button type="submit" disabled={loading} className="submit-button">
+            {loading ? (
+              <>
+                <span className="button-spinner"></span>
+                <span>Generating Your Itinerary...</span>
+              </>
+            ) : (
+              <>
+                <span className="button-icon">🚀</span>
+                <span>Generate Itinerary</span>
+              </>
+            )}
+          </button>
+        </form>
+
+        {error && (
+          <div className="error-message fade-in">
+            <span className="error-icon">⚠️</span>
+            <span>{error}</span>
+          </div>
+        )}
+
+        {itineraryData && (
+          <ItineraryResult data={itineraryData} destination={formData.destination} />
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default ItineraryBuilder;

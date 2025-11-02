@@ -84,7 +84,7 @@ Frontend will run on `http://localhost:3000`
 ## 📁 Project Structure
 
 ```
-GradGuide2 - Copy/
+WanderAI/
 ├── backend/
 │   ├── main.py              # FastAPI application
 │   ├── .env                 # Environment variables (create this)
