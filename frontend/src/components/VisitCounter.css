@@ -1,0 +1,121 @@
+.visit-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.visit-counter:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.counter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.counter-icon svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+  opacity: 0.9;
+}
+
+.counter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.counter-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.counter-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Animation for new visits */
+.counter-number.animate {
+  animation: countUp 0.6s ease-out;
+}
+
+@keyframes countUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .visit-counter {
+    padding: 0.65rem 1rem;
+    gap: 0.65rem;
+  }
+
+  .counter-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .counter-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .counter-label {
+    font-size: 0.7rem;
+  }
+
+  .counter-number {
+    font-size: 1.1rem;
+  }
+}
+
+/* Dark Mode Support */
+body.dark-mode .visit-counter {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .visit-counter:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .counter-icon {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .counter-number {
+  color: #60a5fa;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import VisitCounter from './VisitCounter';
 
 function Footer() {
   return (
@@ -11,6 +12,7 @@ function Footer() {
             WanderAI
           </h3>
           <p className="footer-tagline">AI-Powered Travel Planning</p>
+          <VisitCounter />
         </div>
 
         <div className="footer-links">
